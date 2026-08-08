@@ -56,6 +56,21 @@ python .\sol-audit\independent_verify_sol_v10.py
 - `PRE_SOL_HANDOFF.md`: Sol監査前の引き継ぎ記録
 - `SHA256SUMS_V10.txt`: v10成果物の完全性マニフェスト
 - `sol-audit/`: gpt-5.6-sol/high による独立再監査と、その verifier
+- `AI_CONTEXT.md`: Codex・Claude・他LLMで共有するプロジェクト状態
+- `AGENTS.md`: Codex向けのプロジェクト固有ルール
+- `.gitattributes`: 共有環境での改行コード規約
+
+## Project layout and multi-LLM workflow
+
+The canonical local root is:
+
+```text
+C:\AI\projects\erdos-straus-alpha-audit
+```
+
+Use `AI_CONTEXT.md` as the cross-LLM source of truth for project status, reproduction commands, and uncertainty. `AGENTS.md` contains only Codex-specific execution rules. Keep volatile experiments and private data outside the tracked artifacts or under the ignored `scratch/` and `private-data/` directories.
+
+The repository is Private on GitHub. A clean `git status` and the relevant verifier should be checked before a commit. Public release, issue/PR creation, and push are separate actions requiring explicit authorization for the current task.
 
 ## 一次資料
 
