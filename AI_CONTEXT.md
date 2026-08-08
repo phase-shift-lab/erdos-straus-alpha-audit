@@ -5,7 +5,7 @@
 - Local root: `C:\AI\projects\math\erdos-straus-alpha-audit`
 - GitHub remote: `https://github.com/phase-shift-lab/erdos-straus-alpha-audit`
 - Default branch: `main`
-- Repository visibility: Private
+- Repository visibility: Public
 - Purpose: reproducibly audit the compatibility between the square-free `alpha,d'` parameters and the lattice parameters in Dyachenko, arXiv:2511.07465v1.
 
 ## Current status
@@ -20,8 +20,8 @@ The primary evidence is in `sol-audit/SOL_AUDIT_V10.md`. The v10 artifact integr
 
 ## Public-release preparation
 
-The recommended first public form is a preliminary, scope-limited GitHub
-release. The public-facing materials are `PUBLIC_SUMMARY.md`,
+The first public form is the preliminary, scope-limited GitHub release
+`v0.1.0-audit`. The public-facing materials are `PUBLIC_SUMMARY.md`,
 `REPRODUCE.md`, `LIMITATIONS.md`, `AI_DISCLOSURE.md`, `CITATION.cff`,
 `LICENSE`, `LICENSE-DOCS.md`, and `.github/workflows/verify.yml`.
 
@@ -31,9 +31,9 @@ endings. After regeneration, the independent verifier reports
 and independent verifier expectations were updated to the deterministic LF
 representation. A fresh-clone and CI run are still required before release.
 
-Do not make the repository Public, create a release tag, or assign a DOI until
-the verifier contract is `imports_scan=false`, `failures=[]`, and
-`v10_sha.all_ok=true` on a fresh clone.
+The repository is now Public, and `v0.1.0-audit` is tagged on the merged main
+commit. Do not assign a DOI or present this as a peer-reviewed result until
+human mathematical review and the remaining literature checks are complete.
 
 ## Reproduction
 

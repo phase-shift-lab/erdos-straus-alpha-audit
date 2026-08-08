@@ -61,8 +61,8 @@ specified prime subfamily requires the stated number-theoretic theorem.
 
 ## Current release gate
 
-The repository is not considered release-ready until all verifier contracts
-pass. In particular, the independent verifier must report:
+The `v0.1.0-audit` release passed the verifier contracts. The independent
+verifier reports:
 
 ```text
 imports_scan=false
@@ -73,8 +73,8 @@ v10_sha.all_ok=true
 An earlier Windows run exposed a line-ending sensitivity in the generated
 JSON files. The two generators now write UTF-8 with LF line endings, and the
 v10 manifest plus independent verifier expectations have been reconciled to
-that deterministic representation. The gate still has to be rerun from a
-fresh clone and in CI before a public tag is created.
+that deterministic representation. Future release candidates must rerun the
+same gate from a fresh clone and in CI.
 
 See [REPRODUCE.md](REPRODUCE.md) for the exact commands and
 [LIMITATIONS.md](LIMITATIONS.md) for the scope boundaries.
