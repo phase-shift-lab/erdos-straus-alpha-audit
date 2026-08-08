@@ -14,7 +14,7 @@ P=17 と P=37 では、単位分数分解自体は正しい一方、論文の表
 
 ## 公開準備の状態
 
-現在は、GitHub Public化前の予備監査リリース準備段階です。公開用の要約、再現手順、制限事項、AI開示、引用情報、ライセンス、CIを次の資料に分離しています。
+現在は、GitHub Public化済みの予備監査リリース状態です。公開用の要約、再現手順、制限事項、AI開示、引用情報、ライセンス、CIを次の資料に分離しています。
 
 - `PUBLIC_SUMMARY.md`: 公開用の結論、主張・非主張、P=17/P=37の表
 - `REPRODUCE.md`: 再現コマンドと検証ゲート
@@ -24,7 +24,7 @@ P=17 と P=37 では、単位分数分解自体は正しい一方、論文の表
 - `LICENSE` / `LICENSE-DOCS.md`: コードと文書のライセンス
 - `.github/workflows/verify.yml`: v10と独立verifierのCI
 
-Windows実行時のJSON改行コードによるSHA不一致を解消するため、v10の生成器はUTF-8・LF出力を明示しています。公開ゲートは `imports_scan=false` だけでは合格とせず、fresh cloneとCIで `failures=[]` および `v10_sha.all_ok=true` を確認してから公開タグを作成します。
+Windows実行時のJSON改行コードによるSHA不一致を解消するため、v10の生成器はUTF-8・LF出力を明示しています。`v0.1.0-audit` はfresh cloneとCIで `imports_scan=false`、`failures=[]`、`v10_sha.all_ok=true` を確認したうえで公開しています。
 
 ## 主な数値例
 
@@ -86,7 +86,7 @@ C:\AI\projects\math\erdos-straus-alpha-audit
 
 Use `AI_CONTEXT.md` as the cross-LLM source of truth for project status, reproduction commands, and uncertainty. `AGENTS.md` contains only Codex-specific execution rules. Keep volatile experiments and private data outside the tracked artifacts or under the ignored `scratch/` and `private-data/` directories.
 
-The repository is Private on GitHub. A clean `git status` and the relevant verifier should be checked before a commit. Public release, issue/PR creation, and push are separate actions requiring explicit authorization for the current task.
+The repository is Public on GitHub as of the `v0.1.0-audit` preliminary release. A clean `git status` and the relevant verifier should be checked before future changes. Further public releases, issue/PR creation, and pushes remain separate actions requiring explicit authorization for their task.
 
 ## 一次資料
 
