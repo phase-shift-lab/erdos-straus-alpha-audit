@@ -223,7 +223,8 @@ def main():
         },
     }
     out = ROOT / "v10_verification.json"
-    out.write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")
+    with out.open("w", encoding="utf-8", newline="\n") as handle:
+        handle.write(json.dumps(result, ensure_ascii=False, indent=2))
     print(json.dumps({"output": str(out), "imports_scan": result["imports_scan"], "failures": failures, "family": result["family"]["prime_count"], "mismatches": result["family"]["mismatch_count"], "direct": result["direct_ED2"]}, ensure_ascii=False, indent=2))
     if failures:
         raise SystemExit(1)

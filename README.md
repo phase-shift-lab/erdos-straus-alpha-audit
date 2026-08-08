@@ -12,6 +12,20 @@ P=17 と P=37 では、単位分数分解自体は正しい一方、論文の表
 
 これは新しい Erdős–Straus 解、予想の反証、予想の解決、または査読論文レベルの新規性を主張するものではありません。論文 v1 の記号・パラメータ互換性と証明経路に対する、再現可能な技術的訂正候補です。
 
+## 公開準備の状態
+
+現在は、GitHub Public化前の予備監査リリース準備段階です。公開用の要約、再現手順、制限事項、AI開示、引用情報、ライセンス、CIを次の資料に分離しています。
+
+- `PUBLIC_SUMMARY.md`: 公開用の結論、主張・非主張、P=17/P=37の表
+- `REPRODUCE.md`: 再現コマンドと検証ゲート
+- `LIMITATIONS.md`: 数学・先行性・計算・公開範囲の限界
+- `AI_DISCLOSURE.md`: AI利用範囲と独立検証の位置づけ
+- `CITATION.cff`: 引用情報
+- `LICENSE` / `LICENSE-DOCS.md`: コードと文書のライセンス
+- `.github/workflows/verify.yml`: v10と独立verifierのCI
+
+Windows実行時のJSON改行コードによるSHA不一致を解消するため、v10の生成器はUTF-8・LF出力を明示しています。公開ゲートは `imports_scan=false` だけでは合格とせず、fresh cloneとCIで `failures=[]` および `v10_sha.all_ok=true` を確認してから公開タグを作成します。
+
 ## 主な数値例
 
 P=37, `delta=5, b=5, c=10, A=10`:
@@ -56,6 +70,8 @@ python .\sol-audit\independent_verify_sol_v10.py
 - `PRE_SOL_HANDOFF.md`: Sol監査前の引き継ぎ記録
 - `SHA256SUMS_V10.txt`: v10成果物の完全性マニフェスト
 - `sol-audit/`: gpt-5.6-sol/high による独立再監査と、その verifier
+- `PUBLIC_SUMMARY.md` / `REPRODUCE.md` / `LIMITATIONS.md`: 公開準備資料
+- `CITATION.cff` / `AI_DISCLOSURE.md` / `LICENSE*`: 引用・AI開示・ライセンス
 - `AI_CONTEXT.md`: Codex・Claude・他LLMで共有するプロジェクト状態
 - `AGENTS.md`: Codex向けのプロジェクト固有ルール
 - `.gitattributes`: 共有環境での改行コード規約
@@ -65,7 +81,7 @@ python .\sol-audit\independent_verify_sol_v10.py
 The canonical local root is:
 
 ```text
-C:\AI\projects\erdos-straus-alpha-audit
+C:\AI\projects\math\erdos-straus-alpha-audit
 ```
 
 Use `AI_CONTEXT.md` as the cross-LLM source of truth for project status, reproduction commands, and uncertainty. `AGENTS.md` contains only Codex-specific execution rules. Keep volatile experiments and private data outside the tracked artifacts or under the ignored `scratch/` and `private-data/` directories.

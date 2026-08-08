@@ -1,0 +1,68 @@
+name: reproducibility
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run v10 scan
+        run: python v10_scan.py
+
+      - name: Run v10 verifier
+        run: python verify_v10.py
+
+      - name: Enforce v10 verifier contract
+        run: |
+          python - <<'PY'
+          import json
+
+          with open("v10_verification.json", encoding="utf-8") as handle:
+              report = json.load(handle)
+
+          if report.get("imports_scan") is not False:
+              raise SystemExit("v10 imports_scan contract failed")
+          if report.get("failures") != []:
+              raise SystemExit(f"v10 failures: {report.get('failures')!r}")
+          print("v10 verifier contract: PASS")
+          PY
+
+      - name: Run independent verifier and enforce its contract
+        run: |
+          python - <<'PY'
+          import json
+          import subprocess
+          import sys
+
+          completed = subprocess.run(
+              [sys.executable, "sol-audit/independent_verify_sol_v10.py"],
+              check=True,
+              capture_output=True,
+              text=True,
+          )
+          print(completed.stdout)
+          report = json.loads(completed.stdout)
+          if report.get("imports_scan") is not False:
+              raise SystemExit("independent imports_scan contract failed")
+          if report.get("failures") != []:
+              raise SystemExit(f"independent failures: {report.get('failures')!r}")
+          if report.get("v10_sha", {}).get("all_ok") is not True:
+              raise SystemExit("independent v10 SHA contract failed")
+          print("independent verifier contract: PASS")
+          PY
+
+      - name: Check generated outputs are deterministic
+        run: git diff --exit-code

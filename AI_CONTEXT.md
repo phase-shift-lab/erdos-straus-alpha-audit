@@ -2,7 +2,7 @@
 
 ## Project identity
 
-- Local root: `C:\AI\projects\erdos-straus-alpha-audit`
+- Local root: `C:\AI\projects\math\erdos-straus-alpha-audit`
 - GitHub remote: `https://github.com/phase-shift-lab/erdos-straus-alpha-audit`
 - Default branch: `main`
 - Repository visibility: Private
@@ -17,6 +17,23 @@ The v10 candidate is classified as:
 The independent Sol audit confirms a parameter-compatibility failure as written in the v1 text. P=17 and P=37 are valid Egyptian-fraction decompositions, but the lattice reconstruction does not equal `delta` under the displayed definitions. This is not an Erdős–Straus proof, disproof, solution, or literature-wide novelty claim.
 
 The primary evidence is in `sol-audit/SOL_AUDIT_V10.md`. The v10 artifact integrity is recorded in `SHA256SUMS_V10.txt` and rechecked by `sol-audit/independent_verify_sol_v10.py`.
+
+## Public-release preparation
+
+The recommended first public form is a preliminary, scope-limited GitHub
+release. The public-facing materials are `PUBLIC_SUMMARY.md`,
+`REPRODUCE.md`, `LIMITATIONS.md`, `AI_DISCLOSURE.md`, `CITATION.cff`,
+`LICENSE`, `LICENSE-DOCS.md`, and `.github/workflows/verify.yml`.
+
+As of 2026-08-09, the v10 generators explicitly write UTF-8 with LF line
+endings. After regeneration, the independent verifier reports
+`imports_scan=false`, `failures=[]`, and `v10_sha.all_ok=true`. The manifest
+and independent verifier expectations were updated to the deterministic LF
+representation. A fresh-clone and CI run are still required before release.
+
+Do not make the repository Public, create a release tag, or assign a DOI until
+the verifier contract is `imports_scan=false`, `failures=[]`, and
+`v10_sha.all_ok=true` on a fresh clone.
 
 ## Reproduction
 

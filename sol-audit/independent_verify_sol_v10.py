@@ -24,10 +24,10 @@ EXPECTED_V10_SHA256 = {
     "v10_candidate.json": "00b317699fbd470a4477aa2d3e471f4e0e7559cfe88a07c78bf4ffb243bab35c",
     "v10_candidate.md": "b9527b62ee280bec34302cee1b92cebec335e089701202fcbdeed453856c33dd",
     "v10_hypotheses.json": "02f30393a35355a3269a22533c0ced29265694c0b8e28fcaf5575748f5fdcc0d",
-    "v10_scan.json": "e6ca80ee63389fa70ca520d8ab2419a9d81d50a275b90e50206b9ea8c6b7dd77",
-    "v10_scan.py": "c2489d7150b098be339a0b5accc6c706ac13fe8972d597b52d597106e501b3de",
-    "v10_verification.json": "aca4a8d0405efab5017f139d6891249533ff41c857fde552efba4f29c77299f8",
-    "verify_v10.py": "d79b2ab5ca3f1a8a27909101b3cb7e428db0ca331308cc4f9ed1e49ff55ffb48",
+    "v10_scan.json": "8a63eb2048745622aca957dd0faa9cc1adca2d024c8513ec9318e4f64dc475c3",
+    "v10_scan.py": "758ed4bef25077193342db9da3c12b92222b05d077c464a4ffc3a263e64fd844",
+    "v10_verification.json": "855eb65055c2dce028b01b31fa5e39cdf7dbc7d1204c8e9502357bda17920bf9",
+    "verify_v10.py": "6f5ca5dc800634c09b7188fc09a12fb8b67cd8e4a167b655cb57970f47a933ae",
 }
 
 
