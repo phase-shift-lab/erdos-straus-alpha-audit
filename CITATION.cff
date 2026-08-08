@@ -3,10 +3,13 @@ message: "If you use this audit or its verifier, please cite the repository and 
 title: "Reproducible audit of alpha-parameter compatibility in Dyachenko's ED2 construction"
 type: software
 authors:
-  - name: coordinate-systems
+  - given-names: Kenji
+    family-names: Sato
 repository-code: "https://github.com/phase-shift-lab/erdos-straus-alpha-audit"
 url: "https://github.com/phase-shift-lab/erdos-straus-alpha-audit"
 license: "MIT AND CC-BY-4.0"
+version: "0.1.0-audit"
+date-released: 2026-08-09
 keywords:
   - Erdős–Straus conjecture
   - Egyptian fractions
