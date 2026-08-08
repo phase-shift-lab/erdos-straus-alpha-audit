@@ -18,6 +18,23 @@ The independent Sol audit confirms a parameter-compatibility failure as written 
 
 The primary evidence is in `sol-audit/SOL_AUDIT_V10.md`. The v10 artifact integrity is recorded in `SHA256SUMS_V10.txt` and rechecked by `sol-audit/independent_verify_sol_v10.py`.
 
+## Public-release preparation
+
+The recommended first public form is a preliminary, scope-limited GitHub
+release. The public-facing materials are `PUBLIC_SUMMARY.md`,
+`REPRODUCE.md`, `LIMITATIONS.md`, `AI_DISCLOSURE.md`, `CITATION.cff`,
+`LICENSE`, `LICENSE-DOCS.md`, and `.github/workflows/verify.yml`.
+
+As of 2026-08-09, the v10 generators explicitly write UTF-8 with LF line
+endings. After regeneration, the independent verifier reports
+`imports_scan=false`, `failures=[]`, and `v10_sha.all_ok=true`. The manifest
+and independent verifier expectations were updated to the deterministic LF
+representation. A fresh-clone and CI run are still required before release.
+
+Do not make the repository Public, create a release tag, or assign a DOI until
+the verifier contract is `imports_scan=false`, `failures=[]`, and
+`v10_sha.all_ok=true` on a fresh clone.
+
 ## Reproduction
 
 Run from the repository root:

@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: "If you use this audit or its verifier, please cite the repository and the audited source."
+title: "Reproducible audit of alpha-parameter compatibility in Dyachenko's ED2 construction"
+type: software
+authors:
+  - name: coordinate-systems
+repository-code: "https://github.com/phase-shift-lab/erdos-straus-alpha-audit"
+url: "https://github.com/phase-shift-lab/erdos-straus-alpha-audit"
+license: "MIT AND CC-BY-4.0"
+keywords:
+  - Erdős–Straus conjecture
+  - Egyptian fractions
+  - reproducible research
+  - mathematical audit
+  - parameter compatibility
+abstract: >-
+  A reproducible, scope-limited arithmetic audit of the compatibility between
+  square-free and lattice parameters in the ED2 construction of Dyachenko,
+  arXiv:2511.07465v1. The repository does not claim a proof or disproof of
+  the Erdős–Straus conjecture.
+references:
+  - type: article
+    authors:
+      - family-names: Dyachenko
+    title: "On the Erdős–Straus conjecture"
+    url: "https://arxiv.org/abs/2511.07465"

@@ -294,7 +294,8 @@ def main():
         ],
     }
     out = ROOT / "v10_scan.json"
-    out.write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")
+    with out.open("w", encoding="utf-8", newline="\n") as handle:
+        handle.write(json.dumps(result, ensure_ascii=False, indent=2))
     print(json.dumps({"output": str(out), "counts": result["counts"], "P37": result["boundary"]["P37_t5"]}, ensure_ascii=False, indent=2))
 
 

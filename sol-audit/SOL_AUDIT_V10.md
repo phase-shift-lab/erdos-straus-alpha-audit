@@ -106,7 +106,7 @@
 再現コマンド:
 
 ```powershell
-& 'C:\Users\aycar\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' '.\work\goal-iteration-10-alpha\sol-audit\independent_verify_sol_v10.py'
+python .\sol-audit\independent_verify_sol_v10.py
 ```
 
 ## 残る不確実性
