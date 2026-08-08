@@ -1,0 +1,90 @@
+{
+  "audit": "independent Sol v10 verification",
+  "imports_scan": false,
+  "standard_library_only": true,
+  "failures": [],
+  "v10_sha": {
+    "all_ok": true,
+    "checked_files": 10,
+    "manifest": "../SHA256SUMS_V10.txt"
+  },
+  "P37": {
+    "P": 37,
+    "delta": 5,
+    "b": 5,
+    "c": 10,
+    "A": 10,
+    "prime": true,
+    "P_mod_4": 1,
+    "ed2_residual": 0,
+    "product_residual": 0,
+    "delta_divides_bc": true,
+    "A_le_bP_le_cP": true,
+    "denominators": [10, 185, 370],
+    "integer_fraction_cross_products": [2738000, 2738000],
+    "fraction": "4/37",
+    "fraction_ok": true,
+    "g_natural": 5,
+    "g_constructed": 5,
+    "g_b": 5,
+    "g_c": 5,
+    "b_prime": 1,
+    "c_prime": 2,
+    "gcd_conditions": {
+      "gcd_bprime_cprime": 1,
+      "gcd_bprime_g": 1,
+      "gcd_cprime_g": 1
+    },
+    "squarefree_parameters": {"alpha": 5, "d_prime": 1, "delta_reconstructed": 5},
+    "lattice_parameters": {"alpha": 1, "d_prime": 5, "delta_reconstructed": 25},
+    "compatibility_mismatch": true,
+    "strict_theorem_9_21_I_displayed_conditions": true
+  },
+  "P17_smaller_candidate": {
+    "P": 17,
+    "delta": 4,
+    "b": 2,
+    "c": 10,
+    "A": 5,
+    "denominators": [5, 34, 170],
+    "fraction": "4/17",
+    "g_natural_equals_constructed": 2,
+    "squarefree_parameters": {"alpha": 1, "d_prime": 2, "delta_reconstructed": 4},
+    "lattice_parameters": {"alpha": 2, "d_prime": 1, "delta_reconstructed": 2},
+    "strict_theorem_9_21_I_displayed_conditions": true,
+    "compatibility_mismatch": true
+  },
+  "P29_paper_example": {
+    "P": 29,
+    "delta": 4,
+    "b": 4,
+    "c": 8,
+    "A": 8,
+    "identity_ok": true,
+    "paper_constructed_g": 2,
+    "actual_gcd_b_c": 4,
+    "paper_b_prime": 2,
+    "paper_c_prime": 4,
+    "paper_gcd_bprime_cprime": 2,
+    "classification": "secondary_internal_defect"
+  },
+  "family": {
+    "formula": "P=8t-3, delta=t, b=t, c=2t, A=2t",
+    "symbolic_identity_proved": true,
+    "prime_bound": 2000000,
+    "all_prime_rows_including_P5": 37300,
+    "mismatches_for_t_gt_1": 37299,
+    "theorem_I_displayed_gcd_rows_t_odd": 18640,
+    "theorem_I_mismatches_for_t_gt_1": 18639,
+    "section7_squarefree_primitive_rows": 25141,
+    "exceptions": [],
+    "infinitude_note": "The strict displayed-gcd subfamily is P congruent to 5 mod 16; infinitude uses Dirichlet's theorem and is not inferred from the finite scan."
+  },
+  "direct_enumeration": {
+    "P_max": 349,
+    "b_c_max": 180,
+    "valid_ordered_rows": 138,
+    "strict_displayed_mismatches": 51,
+    "smallest_strict_mismatch": {"P": 17, "delta": 4, "b": 2, "c": 10}
+  }
+}

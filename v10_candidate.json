@@ -1,0 +1,53 @@
+{
+  "candidate_status": "correction_possible_pre_audit",
+  "novelty_claim": false,
+  "claim_type": "internal parameter-compatibility correction",
+  "source": {
+    "title": "Constructive Proofs of the Erdos-Straus Conjecture for Prime Numbers of the Form P congruent to 1 modulo 4",
+    "url": "https://arxiv.org/abs/2511.07465",
+    "version": "v1",
+    "locations": ["Lemma 7.2, PDF p.16", "Theorem 7.3, PDF pp.16-17", "Section 9.6, PDF p.24", "Theorem 9.21(I)-(III), PDF pp.27-28"]
+  },
+  "primary_counterexample": {
+    "P": 37,
+    "delta": 5,
+    "b": 5,
+    "c": 10,
+    "A": 10,
+    "g": 5,
+    "b_prime": 1,
+    "c_prime": 2,
+    "alpha_squarefree": 5,
+    "d_square": 1,
+    "alpha_lattice": 1,
+    "d_lattice": 5,
+    "delta_from_lattice": 25,
+    "primitive": true,
+    "ed2_identity": "4*5*10-5-10=37*5",
+    "product_identity": "(4*5-1)*(4*10-1)=4*37*5+1",
+    "fraction_identity": "4/37=1/10+1/185+1/370"
+  },
+  "parametric_family": {
+    "P": "8*t-3",
+    "conditions": ["t>=1", "P prime for ED2 prime scope", "P>3", "t odd for Theorem 9.21(I)'s displayed gcd(b',g),gcd(c',g) conditions"],
+    "delta": "t",
+    "b": "t",
+    "c": "2*t",
+    "A": "2*t",
+    "alpha_lattice": 1,
+    "d_lattice": "t",
+    "mismatch": "t != t^2 for t>1"
+  },
+  "impact": {
+    "proof_route": "requires correction or an omitted compatibility lemma",
+    "theorem_existence_claim": "not independently refuted by this candidate",
+    "erdos_straus_conjecture": "no implication",
+    "publication_novelty": "not claimed"
+  },
+  "verification": {
+    "scan": "v10_scan.py",
+    "independent_verifier": "verify_v10.py",
+    "imports_scan": false,
+    "failures": []
+  }
+}

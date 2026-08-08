@@ -1,0 +1,190 @@
+{
+  "version": "v10-alpha-hypotheses-1",
+  "source_scope": "Dyachenko arXiv:2511.07465v1 only, plus local prior audit as read-only context",
+  "hypotheses": [
+    {
+      "id": "A01",
+      "branch": "notation",
+      "claim": "The alpha in Lemma 7.2 is the squarefree kernel factor of delta.",
+      "status": "confirmed_source",
+      "evidence": "PDF v1 p.16, Lemma 7.2: delta=alpha*d'^2 with alpha square-free.",
+      "inspection": "literal source text"
+    },
+    {
+      "id": "A02",
+      "branch": "notation",
+      "claim": "The alpha in Theorem 9.21(III) is defined as gcd(g,b'+c').",
+      "status": "confirmed_source",
+      "evidence": "PDF v1 p.28, lines for Theorem 9.21(III): alpha:=gcd(g,b'+c'), d'=g/alpha.",
+      "inspection": "literal source text"
+    },
+    {
+      "id": "A03",
+      "branch": "notation",
+      "claim": "Theorem 9.21(I)'s assertion that the two alpha/d' descriptions are consistent holds for every admissible ED2 row.",
+      "status": "rejected_by_explicit_counterexample",
+      "evidence": "P=37, (delta,b,c)=(5,5,10), g=5,b'=1,c'=2: alpha_lattice=1,d_lattice=5, but delta=5 != 25.",
+      "inspection": "exact integer and Fraction verification"
+    },
+    {
+      "id": "A04",
+      "branch": "notation",
+      "claim": "The P=37 failure is caused by a nonprimitive normalized pair.",
+      "status": "rejected",
+      "evidence": "gcd(1,2)=1; the row is primitive under the displayed normalization.",
+      "inspection": "P=37 direct check"
+    },
+    {
+      "id": "A05",
+      "branch": "notation",
+      "claim": "The section 7 use of g can be read simultaneously as gcd(b,c) and alpha*d'.",
+      "status": "correction_candidate",
+      "evidence": "Lemma 7.2 first sets g=gcd(b,c), then says set g:=alpha*d'; P=29 example has constructed g=2 but gcd(4,8)=4.",
+      "inspection": "source text plus P=29 arithmetic"
+    },
+    {
+      "id": "B01",
+      "branch": "explicit_family",
+      "claim": "For every integer t>=1, P=8t-3 and (delta,b,c,A)=(t,t,2t,2t) satisfy the ED2 identity.",
+      "status": "confirmed_identity",
+      "evidence": "4bc-b-c=t(8t-3)=P*delta and A=bc/delta=2t.",
+      "inspection": "symbolic identity and Fraction for t<=10000"
+    },
+    {
+      "id": "B02",
+      "branch": "explicit_family",
+      "claim": "When P=8t-3 is prime, the family is an admissible positive three-term decomposition.",
+      "status": "confirmed_identity",
+      "evidence": "4/P=1/(2t)+1/(tP)+1/(2tP), with 2t<tP<2tP for t>=1 and P>2.",
+      "inspection": "prime family scan through P<=1,000,000"
+    },
+    {
+      "id": "B03",
+      "branch": "explicit_family",
+      "claim": "For prime P=8t-3>3, the lattice alpha is gcd(t,3)=1; when t is odd, the displayed Theorem 9.21(I) gcd conditions also hold.",
+      "status": "confirmed_proof",
+      "evidence": "If 3 divides t then 3 divides P; impossible for a prime P>3. The remaining conditions are gcd(1,t)=1 and gcd(2,t)=1, the latter requiring odd t.",
+      "inspection": "symbolic divisibility argument"
+    },
+    {
+      "id": "B04",
+      "branch": "explicit_family",
+      "claim": "For every prime family row with t>1 the numerical compatibility fails; for the odd-t subfamily satisfying Theorem 9.21(I)'s displayed gcd conditions, it is a direct theorem-I counterexample.",
+      "status": "confirmed_counterexample_family",
+      "evidence": "alpha_lattice=1,d_lattice=t, so the asserted value is t^2 while delta=t.",
+      "inspection": "all prime rows P<=1,000,000; theorem-I admissible subrows separated by gcd(2,t)=1"
+    },
+    {
+      "id": "B05",
+      "branch": "explicit_family",
+      "claim": "The boundary t=1 (P=5) is the only family point where the two numerical delta expressions agree.",
+      "status": "confirmed_boundary",
+      "evidence": "t=t^2 iff t=1 for positive integers.",
+      "inspection": "symbolic boundary check and P=5"
+    },
+    {
+      "id": "B06",
+      "branch": "explicit_family",
+      "claim": "Squarefree t subfamily gives literal primitive Section 7 parameter rows, so the P=37 example is not rescued by a non-squarefree caveat.",
+      "status": "confirmed_examples",
+      "evidence": "P=13 (t=2), P=37 (t=5), P=101 (t=13), and further rows have alpha_sf=t,d_sf=1,g=t,b'=1,c'=2.",
+      "inspection": "finite prime examples through P<=1,000,000"
+    },
+    {
+      "id": "C01",
+      "branch": "independent_scan",
+      "claim": "The family mismatch is not a P=37 numerical accident.",
+      "status": "confirmed_finite_scan",
+      "evidence": "Independent prime scan records a mismatch for every P=5 mod 8, P>5, in the stated range.",
+      "inspection": "v10_scan.py, P<=1,000,000"
+    },
+    {
+      "id": "C02",
+      "branch": "independent_scan",
+      "claim": "The mismatch also appears in squarefree-alpha template rows generated from the paper's product identity.",
+      "status": "confirmed_finite_scan",
+      "evidence": "Enumerate (alpha,d,b',c') from c'=(Pd+b')/(4alpha*d*b'-1), with primitive filters.",
+      "inspection": "P<=2,000, alpha<=12,d<=12,b'<=30"
+    },
+    {
+      "id": "C03",
+      "branch": "independent_scan",
+      "claim": "Direct ED2 enumeration is needed to distinguish a template defect from a defect in the underlying unit-fraction identity.",
+      "status": "confirmed_method",
+      "evidence": "Direct b,c enumeration checks 4bc-b-c=Pdelta, delta|bc, ordering, and Fraction independently.",
+      "inspection": "P<=200 and b<=c<=250"
+    },
+    {
+      "id": "C04",
+      "branch": "independent_scan",
+      "claim": "The unit-fraction decomposition itself fails on the mismatch rows.",
+      "status": "rejected",
+      "evidence": "Fraction equality is true for P=13,37,101 and all scanned family rows; the issue is parameter compatibility, not the decomposition.",
+      "inspection": "independent verifier"
+    },
+    {
+      "id": "C05",
+      "branch": "independent_scan",
+      "claim": "The paper's P=29 worked example satisfies the displayed primitive gcd condition.",
+      "status": "rejected",
+      "evidence": "Displayed alpha=1,d'=2,b'=2,c'=4 gives gcd(b',c')=2, while the displayed g=2 and b=4,c=8 have gcd(b,c)=4.",
+      "inspection": "direct arithmetic, source p.17"
+    },
+    {
+      "id": "C06",
+      "branch": "independent_scan",
+      "claim": "P=37 is a valid concrete ED2 row satisfying primitive normalization and exposing the alpha collision.",
+      "status": "confirmed_counterexample",
+      "evidence": "(delta,b,c,A)=(5,5,10,10), (b',c')=(1,2), all integer and Fraction checks pass; lattice prediction is 25.",
+      "inspection": "exact independent verifier"
+    },
+    {
+      "id": "D01",
+      "branch": "repair",
+      "claim": "A safe notation repair is to use alpha_sf,d_sf for delta=alpha_sf*d_sf^2 and alpha_lat,d_lat for gcd(g,b'+c') and g/alpha_lat.",
+      "status": "correction_candidate",
+      "evidence": "The two definitions are individually well-defined but are not equal on P=37.",
+      "inspection": "symbolic definitions and counterexample"
+    },
+    {
+      "id": "D02",
+      "branch": "repair",
+      "claim": "The equality delta=alpha_lat*d_lat^2 must be an additional compatibility hypothesis, not a consequence of the lattice definition.",
+      "status": "confirmed_repair_condition",
+      "evidence": "It is exactly the condition that fails on the family and can be checked without factorization.",
+      "inspection": "integer iff check"
+    },
+    {
+      "id": "D03",
+      "branch": "repair",
+      "claim": "The alpha mismatch alone refutes the stated proof route but not necessarily Theorem 9.21's existential conclusion.",
+      "status": "unresolved_but_bounded",
+      "evidence": "The source's geometric argument may use a restricted constructed subfamily; the v1 text does not prove the needed compatibility.",
+      "inspection": "source p.27-28 and independent checks"
+    },
+    {
+      "id": "D04",
+      "branch": "repair",
+      "claim": "The correction candidate has no direct implication for the truth of the Erdos-Straus conjecture.",
+      "status": "confirmed_scope_limit",
+      "evidence": "All tested rows remain valid decompositions; only a claimed parameter identification is contradicted.",
+      "inspection": "Fraction checks and source scope"
+    },
+    {
+      "id": "D05",
+      "branch": "repair",
+      "claim": "The result is suitable for pre-audit as a possible corrigendum note, not as a new ESC solution or a novelty claim.",
+      "status": "correction_possible_pre_audit",
+      "evidence": "Primary-source wording, explicit P=37 counterexample, symbolic family, and independent verifier are all available.",
+      "inspection": "v10 package"
+    },
+    {
+      "id": "D06",
+      "branch": "repair",
+      "claim": "The issue may be a repairable variable reset/overloading rather than a fatal theorem counterexample.",
+      "status": "unresolved",
+      "evidence": "A corrected theorem would need an explicit distinction between constructed scale g and gcd(b,c), plus a proof of the compatibility condition.",
+      "inspection": "requires Sol/source-author audit"
+    }
+  ]
+}

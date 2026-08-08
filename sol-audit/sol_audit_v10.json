@@ -1,0 +1,39 @@
+{
+  "audit_role": "gpt-5.6-sol/high independent review",
+  "candidate_status": "correction_confirmed_pre_publication_scope_unverified",
+  "verdict": {
+    "v10_core_P37": "confirmed",
+    "smaller_example_P17": "confirmed",
+    "paper_parameter_compatibility_as_written": "false",
+    "mere_symbol_typo_only": "not_sufficient_to_explain_all_failures",
+    "theorem_7_3_all_solutions_completeness": "materially_affected_as_written",
+    "theorem_9_21_parameter_bridge": "materially_affected_as_written",
+    "theorem_9_21_existence_conclusion": "not_refuted_by_this_audit",
+    "erdos_straus_conjecture": "neither_proved_nor_refuted"
+  },
+  "interpretations_of_g": {
+    "natural": "Section 5 defines g=gcd(b,c), and Section 9.6 explicitly returns to gcd(b,c)=g.",
+    "alternative": "g may be intended as the constructed scale alpha*d_prime after the reset in Lemma 7.2.",
+    "assessment": "P=17 and P=37 have natural g equal to the constructed scale, so the incompatibility survives either reading."
+  },
+  "evidence": {
+    "P37": "delta=5 versus lattice reconstruction 1*5^2=25",
+    "P17": "delta=4 versus lattice reconstruction 2*1^2=2",
+    "P29": "paper g=2 versus gcd(b,c)=4, and gcd(2,4)=2"
+  },
+  "reproducibility": {
+    "imports_scan": false,
+    "failures": [],
+    "v10_sha_all_ok": true,
+    "independent_family_prime_bound": 2000000,
+    "independent_direct_range": {"P_max": 349, "b_c_max": 180}
+  },
+  "novelty": {
+    "specified_primary_source_checked": true,
+    "existing_local_records_distinguished": true,
+    "broad_literature_search": false,
+    "publication_priority": "unconfirmed"
+  },
+  "recommended_label": "Dyachenko arXiv:2511.07465v1 parameter-compatibility correction candidate",
+  "prohibited_labels": ["new Erdős–Straus discovery", "Erdős–Straus disproof", "Erdős–Straus proof"]
+}
