@@ -1,42 +1,50 @@
-# Erdős–Straus alpha-compatibility audit
+# Erdős–Straus Alpha-Compatibility Audit
 
-Dyachenko, arXiv:2511.07465v1 の ED2 パラメータ表示について、平方自由分解側の `alpha,d'` と格子側の `gcd(g,b'+c')` が同一の量として接続されている箇所を、整数計算・`Fraction`・独立 verifier で再検査した記録です。
+This repository contains a reproducible audit of a parameter-compatibility assertion in Dyachenko, [arXiv:2511.07465v1](https://arxiv.org/abs/2511.07465).
 
-## 結論の範囲
+The audit concerns the connection between two quantities written with the same `alpha` notation:
 
-このリポジトリは、次の分類で保全しています。
+- the square-free factor in the ED2 parametrization, `delta = alpha_sf * d_sf^2`; and
+- the lattice quantity `alpha_lat = gcd(g, b' + c')`, with `d_lat = g / alpha_lat`.
 
-`correction_possible_pre_audit` / Sol再監査後: `correction_confirmed_pre_publication_scope_unverified`
+## Current classification
 
-P=17 と P=37 では、単位分数分解自体は正しい一方、論文の表示どおりに計算した格子側の再構成値が `delta` と一致しません。P=17 は、指定した有限範囲で確認した最小の厳密例です。
+`correction_confirmed_pre_publication_scope_unverified`
 
-これは新しい Erdős–Straus 解、予想の反証、予想の解決、または査読論文レベルの新規性を主張するものではありません。論文 v1 の記号・パラメータ互換性と証明経路に対する、再現可能な技術的訂正候補です。
+The independent audit confirms that, under the displayed definitions in version 1, the claimed compatibility `delta = alpha_lat * d_lat^2` fails for valid ED2 decompositions. This is a technical correction candidate concerning the paper's notation and parameter bridge.
 
-## 主な数値例
+This repository does **not** claim:
 
-P=37, `delta=5, b=5, c=10, A=10`:
+- a new solution of the Erdős–Straus conjecture;
+- a counterexample to the conjecture;
+- a resolution of the conjecture; or
+- literature-wide priority or publication-level novelty.
 
-```text
-4/37 = 1/10 + 1/185 + 1/370
-g = gcd(5,10) = 5, (b',c') = (1,2)
-alpha_squarefree = 5, d_square = 1
-alpha_lattice = gcd(5,1+2) = 1, d_lattice = 5
-alpha_lattice*d_lattice^2 = 25 != delta = 5
-```
+## Small exact witness
 
-Sol再監査では、より小さい P=17 の例も独立に確認しています。
+The following row satisfies the displayed arithmetic conditions and gives a valid Egyptian-fraction decomposition:
 
 ```text
+(P, delta, b, c, A) = (17, 4, 2, 10, 5)
+4bc - b - c = 68 = 17 * 4
 4/17 = 1/5 + 1/34 + 1/170
-(delta,b,c,A) = (4,2,10,5)
-alpha_squarefree = 1, d_square = 2
-alpha_lattice = 2, d_lattice = 1
-alpha_lattice*d_lattice^2 = 2 != delta = 4
 ```
 
-## 再現方法
+With `g = gcd(b,c) = 2` and `(b',c') = (1,5)`:
 
-依存パッケージはなく、Python標準ライブラリだけを使います。リポジトリのルートで実行してください。
+```text
+square-free parameters: (alpha_sf, d_sf) = (1, 2)
+lattice parameters:     (alpha_lat, d_lat) = (2, 1)
+alpha_lat * d_lat^2 = 2 != delta = 4
+```
+
+Here the natural gcd interpretation and the constructed scale both give `g = 2`, so the discrepancy is not resolved by the ambiguity in the meaning of `g`.
+
+The independently checked `P=37` row is retained as a second example. See [`TECHNICAL_NOTE.md`](TECHNICAL_NOTE.md) for the full calculation and the general family.
+
+## Reproduction
+
+The scripts use only the Python standard library. Run them from the repository root:
 
 ```powershell
 python .\v10_scan.py
@@ -44,38 +52,30 @@ python .\verify_v10.py
 python .\sol-audit\independent_verify_sol_v10.py
 ```
 
-`verify_v10.py` は `v10_scan.py` を import せず、`imports_scan=false` と `failures=[]` を含む `v10_verification.json` を再生成します。Sol側の独立 verifier も探索器を import せず、v10成果物のSHA256を再照合します。
-
-## ファイル構成
-
-- `EXPLORATION_V10_ALPHA.md`: 探索設計、定義、恒等式、棄却・限界
-- `v10_scan.py` / `v10_scan.json`: 族・テンプレート・直接ED2行の走査
-- `verify_v10.py` / `v10_verification.json`: 独立検証器と結果
-- `v10_candidate.md` / `v10_candidate.json`: 訂正候補の主張と分類
-- `PRIOR_ART_V10.md`: 一次資料と既知構造の照合
-- `PRE_SOL_HANDOFF.md`: Sol監査前の引き継ぎ記録
-- `SHA256SUMS_V10.txt`: v10成果物の完全性マニフェスト
-- `sol-audit/`: gpt-5.6-sol/high による独立再監査と、その verifier
-- `AI_CONTEXT.md`: Codex・Claude・他LLMで共有するプロジェクト状態
-- `AGENTS.md`: Codex向けのプロジェクト固有ルール
-- `.gitattributes`: 共有環境での改行コード規約
-
-## Project layout and multi-LLM workflow
-
-The canonical local root is:
+The independent-verifier record is expected to include:
 
 ```text
-C:\AI\projects\math\erdos-straus-alpha-audit
+imports_scan=false
+failures=[]
+v10_sha.all_ok=true
 ```
 
-Use `AI_CONTEXT.md` as the cross-LLM source of truth for project status, reproduction commands, and uncertainty. `AGENTS.md` contains only Codex-specific execution rules. Keep volatile experiments and private data outside the tracked artifacts or under the ignored `scratch/` and `private-data/` directories.
+The verifier does not import the scan or the earlier verifier. It also rechecks the v10 input hashes from the manifest.
 
-The repository is Private on GitHub. A clean `git status` and the relevant verifier should be checked before a commit. Public release, issue/PR creation, and push are separate actions requiring explicit authorization for the current task.
+## Repository map
 
-## 一次資料
+- [`TECHNICAL_NOTE.md`](TECHNICAL_NOTE.md): concise English note for an independent mathematical reader.
+- [`README.ja.md`](README.ja.md): Japanese companion orientation.
+- [`EXPLORATION_V10_ALPHA.md`](EXPLORATION_V10_ALPHA.md): definitions, symbolic family, scan design, and limits.
+- [`v10_scan.py`](v10_scan.py) / [`v10_scan.json`](v10_scan.json): construction scan and recorded output.
+- [`verify_v10.py`](verify_v10.py) / [`v10_verification.json`](v10_verification.json): non-importing verification pass.
+- [`sol-audit/`](sol-audit/): independent re-audit and verifier.
+- [`SHA256SUMS_V10.txt`](SHA256SUMS_V10.txt): integrity manifest for the protected v10 inputs.
 
-- [Dyachenko, arXiv:2511.07465v1 (abstract)](https://arxiv.org/abs/2511.07465)
-- [Dyachenko, arXiv:2511.07465v1 (HTML)](https://arxiv.org/html/2511.07465v1)
-- [Dyachenko, arXiv:2511.07465v1 (PDF)](https://arxiv.org/pdf/2511.07465)
+## Scope and remaining uncertainty
 
-本リポジトリは v1 に対するローカル監査記録です。改訂版、著者訂正、広範な先行研究、出版優先権は未確認です。論文への連絡や公開投稿の前に、別の数学者による内容確認と最新版・先行性の確認が必要です。
+The audit establishes a reproducible mismatch in the displayed parameter connection. It does not by itself determine whether the entire existence argument can be repaired with separate parameters, an added compatibility hypothesis, or a different proof.
+
+The repository has not established the status of later arXiv versions, author corrections, broad prior art, or publication-level novelty. Those checks are required before any public priority claim or formal publication claim.
+
+The primary source is [Dyachenko, arXiv:2511.07465v1](https://arxiv.org/abs/2511.07465). A reviewer is invited to identify any misreading in the `P=17` calculation or in the interpretation of Theorem 9.21(I).
