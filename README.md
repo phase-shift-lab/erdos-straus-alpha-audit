@@ -65,7 +65,7 @@ python .\sol-audit\independent_verify_sol_v10.py
 The canonical local root is:
 
 ```text
-C:\AI\projects\erdos-straus-alpha-audit
+C:\AI\projects\math\erdos-straus-alpha-audit
 ```
 
 Use `AI_CONTEXT.md` as the cross-LLM source of truth for project status, reproduction commands, and uncertainty. `AGENTS.md` contains only Codex-specific execution rules. Keep volatile experiments and private data outside the tracked artifacts or under the ignored `scratch/` and `private-data/` directories.

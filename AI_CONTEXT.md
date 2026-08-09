@@ -2,7 +2,7 @@
 
 ## Project identity
 
-- Local root: `C:\AI\projects\erdos-straus-alpha-audit`
+- Local root: `C:\AI\projects\math\erdos-straus-alpha-audit`
 - GitHub remote: `https://github.com/phase-shift-lab/erdos-straus-alpha-audit`
 - Default branch: `main`
 - Repository visibility: Private
