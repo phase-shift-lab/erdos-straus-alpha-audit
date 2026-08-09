@@ -20,17 +20,9 @@ The primary evidence is in `sol-audit/SOL_AUDIT_V10.md`. The v10 artifact integr
 
 ## Public-release status
 
-The repository is Public and contains the preliminary, scope-limited GitHub
-release `v0.1.0-audit`. The public-facing materials are `PUBLIC_SUMMARY.md`,
-`REPRODUCE.md`, `LIMITATIONS.md`, `AI_DISCLOSURE.md`, `CITATION.cff`,
-`LICENSE`, `LICENSE-DOCS.md`, and `.github/workflows/verify.yml`.
+The repository is Public and contains the preliminary, scope-limited GitHub release `v0.1.0-audit`. The public-facing materials are `PUBLIC_SUMMARY.md`, `REPRODUCE.md`, `LIMITATIONS.md`, `AI_DISCLOSURE.md`, `CITATION.cff`, `LICENSE`, `LICENSE-DOCS.md`, and `.github/workflows/verify.yml`.
 
-The v10 generators explicitly write UTF-8 with LF line endings. The released
-verifier contract reports `imports_scan=false`, `failures=[]`, and
-`v10_sha.all_ok=true`. A fresh-clone and CI run remain required for any future
-release candidate, and no DOI or peer-reviewed-result claim should be made
-until human mathematical review and the remaining literature checks are
-complete.
+The v10 generators explicitly write UTF-8 with LF line endings. The released verifier contract reports `imports_scan=false`, `failures=[]`, and `v10_sha.all_ok=true`. A fresh-clone and CI run remain required for any future release candidate, and no DOI or peer-reviewed-result claim should be made until human mathematical review and the remaining literature checks are complete.
 
 ## Reproduction
 
@@ -58,7 +50,7 @@ The scripts use the Python standard library only. The scan and verifier regenera
 2. Keep claims precise: call the result a correction candidate or audit result, never a new ESC discovery or resolution.
 3. Before changing files, state the scope and run the smallest relevant verifier afterward.
 4. Do not delete files, publish externally, open issues/PRs, or push commits unless the current task explicitly requests it.
-5. Put volatile notes, raw experiments, and large private data outside the tracked artifact set or under ignored directories.
+5. Put volatile experiments, raw experiments, and large private data outside the tracked artifact set or under ignored directories.
 6. Use `README.md` for human-facing orientation, this file for cross-LLM context, and `AGENTS.md` for Codex-specific execution rules.
 
 ## Source and uncertainty
