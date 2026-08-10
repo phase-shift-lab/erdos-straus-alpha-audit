@@ -1,0 +1,56 @@
+{
+  "version": "paper-candidate-pre-audit-criterion-1",
+  "candidate_status": "paper_level_candidate_pre_audit",
+  "independent_final_audit": false,
+  "hypotheses": [
+    {
+      "id": "CAND-001",
+      "statement": "For positive integers with g=alpha*d, b=g*b_prime, c=g*c_prime, delta=alpha*d^2, and 4*b*c-b-c=P*delta, alpha_lat=gcd(g,b_prime+c_prime) equals d*gcd(alpha,P).",
+      "status": "supported_pre_audit",
+      "evidence": "PROOF_DRAFT.md and independent exact-arithmetic verifier"
+    },
+    {
+      "id": "CAND-002",
+      "statement": "The corresponding lattice parameter d_lat=g/alpha_lat equals alpha/gcd(alpha,P).",
+      "status": "supported_pre_audit",
+      "evidence": "Direct consequence of CAND-001 and g=alpha*d"
+    },
+    {
+      "id": "CAND-003",
+      "statement": "The square-free/lattice bridge delta=alpha_lat*d_lat^2 holds if and only if d=alpha/gcd(alpha,P).",
+      "status": "supported_pre_audit",
+      "evidence": "Exact comparison in PROOF_DRAFT.md and bounded independent tests"
+    },
+    {
+      "id": "CAND-004",
+      "statement": "The fixed alpha=2, d=2 progression P=60*t+37 gives compatible prime instances satisfying the source gcd filters whenever P is prime.",
+      "status": "supported_pre_audit",
+      "evidence": "Symbolic identity, gcd checks, and trial-division prime instances"
+    },
+    {
+      "id": "CAND-005",
+      "statement": "The fixed alpha=3, d=1 progression P=132*u+109 gives incompatible prime instances while satisfying the source gcd filters whenever P is prime.",
+      "status": "supported_pre_audit",
+      "evidence": "Symbolic identity, gcd checks, and trial-division prime instances"
+    },
+    {
+      "id": "CAND-006",
+      "statement": "The displayed P=2521, alpha=1, d_prime=3, b_prime=4, c_prime=161 source row satisfies ED2 but has alpha_lat*d_lat^2 different from delta.",
+      "status": "supported_pre_audit",
+      "evidence": "Independent recomputation from displayed parameters"
+    },
+    {
+      "id": "CAND-007",
+      "statement": "The checked literature search did not refute the exact criterion.",
+      "status": "preliminary_only",
+      "evidence": "PRELIMINARY_PRIOR_ART.md",
+      "not_claimed": "priority or no prior art"
+    },
+    {
+      "id": "CAND-008",
+      "statement": "The theorem alone refutes the entire source existence argument or resolves the Erdős–Straus conjecture.",
+      "status": "not_claimed",
+      "reason": "The candidate isolates a parameter bridge and does not audit every downstream implication."
+    }
+  ]
+}

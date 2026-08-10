@@ -1,0 +1,178 @@
+{
+  "all_ok": true,
+  "captured_utc": "2026-08-10T05:30:35.483790Z",
+  "manifests": [
+    {
+      "all_ok": true,
+      "entries": [
+        {
+          "actual_sha256": "ceb076f821546a90ce72dfdfdffce3c97bcec7adaef45ffd045bfcb50a3b0bee",
+          "expected_sha256": "ceb076f821546a90ce72dfdfdffce3c97bcec7adaef45ffd045bfcb50a3b0bee",
+          "ok": true,
+          "path": "EXPLORATION_V10_ALPHA.md"
+        },
+        {
+          "actual_sha256": "73758cdc3e84e96dbbaa3f6a7286c0e28adaef4336fe0fe50f8439c35ed16b27",
+          "expected_sha256": "73758cdc3e84e96dbbaa3f6a7286c0e28adaef4336fe0fe50f8439c35ed16b27",
+          "ok": true,
+          "path": "PRE_SOL_HANDOFF.md"
+        },
+        {
+          "actual_sha256": "b851b67baf62b73e56dd8b13372f83c765a47d3921f1416da215e26b87188a71",
+          "expected_sha256": "b851b67baf62b73e56dd8b13372f83c765a47d3921f1416da215e26b87188a71",
+          "ok": true,
+          "path": "PRIOR_ART_V10.md"
+        },
+        {
+          "actual_sha256": "00b317699fbd470a4477aa2d3e471f4e0e7559cfe88a07c78bf4ffb243bab35c",
+          "expected_sha256": "00b317699fbd470a4477aa2d3e471f4e0e7559cfe88a07c78bf4ffb243bab35c",
+          "ok": true,
+          "path": "v10_candidate.json"
+        },
+        {
+          "actual_sha256": "b9527b62ee280bec34302cee1b92cebec335e089701202fcbdeed453856c33dd",
+          "expected_sha256": "b9527b62ee280bec34302cee1b92cebec335e089701202fcbdeed453856c33dd",
+          "ok": true,
+          "path": "v10_candidate.md"
+        },
+        {
+          "actual_sha256": "02f30393a35355a3269a22533c0ced29265694c0b8e28fcaf5575748f5fdcc0d",
+          "expected_sha256": "02f30393a35355a3269a22533c0ced29265694c0b8e28fcaf5575748f5fdcc0d",
+          "ok": true,
+          "path": "v10_hypotheses.json"
+        },
+        {
+          "actual_sha256": "8a63eb2048745622aca957dd0faa9cc1adca2d024c8513ec9318e4f64dc475c3",
+          "expected_sha256": "8a63eb2048745622aca957dd0faa9cc1adca2d024c8513ec9318e4f64dc475c3",
+          "ok": true,
+          "path": "v10_scan.json"
+        },
+        {
+          "actual_sha256": "758ed4bef25077193342db9da3c12b92222b05d077c464a4ffc3a263e64fd844",
+          "expected_sha256": "758ed4bef25077193342db9da3c12b92222b05d077c464a4ffc3a263e64fd844",
+          "ok": true,
+          "path": "v10_scan.py"
+        },
+        {
+          "actual_sha256": "855eb65055c2dce028b01b31fa5e39cdf7dbc7d1204c8e9502357bda17920bf9",
+          "expected_sha256": "855eb65055c2dce028b01b31fa5e39cdf7dbc7d1204c8e9502357bda17920bf9",
+          "ok": true,
+          "path": "v10_verification.json"
+        },
+        {
+          "actual_sha256": "6f5ca5dc800634c09b7188fc09a12fb8b67cd8e4a167b655cb57970f47a933ae",
+          "expected_sha256": "6f5ca5dc800634c09b7188fc09a12fb8b67cd8e4a167b655cb57970f47a933ae",
+          "ok": true,
+          "path": "verify_v10.py"
+        }
+      ],
+      "entry_count": 10,
+      "manifest": "SHA256SUMS_V10.txt",
+      "manifest_sha256": "391ca64aa44630c5d3d7512b41e99fb8f4f622fad9d8d657021ef168c0421875",
+      "parse_failures": []
+    },
+    {
+      "all_ok": true,
+      "entries": [
+        {
+          "actual_sha256": "bb075d6fabde319ceb44798375fbbe3df06c1ad81b78e27faca9617bc7f109ed",
+          "expected_sha256": "bb075d6fabde319ceb44798375fbbe3df06c1ad81b78e27faca9617bc7f109ed",
+          "ok": true,
+          "path": "sol-audit/independent_verify_sol_v10.py"
+        },
+        {
+          "actual_sha256": "8699c7de13a17c1fc2112499ea672501f254b8b73c213efdaf5821543c373ba0",
+          "expected_sha256": "8699c7de13a17c1fc2112499ea672501f254b8b73c213efdaf5821543c373ba0",
+          "ok": true,
+          "path": "sol-audit/PRIOR_ART_SOL_V10.md"
+        },
+        {
+          "actual_sha256": "284be299712deadde12511d3629d15b6bf55a95f443817e4d6bd1ca92d023f0a",
+          "expected_sha256": "284be299712deadde12511d3629d15b6bf55a95f443817e4d6bd1ca92d023f0a",
+          "ok": true,
+          "path": "sol-audit/sol_audit_v10.json"
+        },
+        {
+          "actual_sha256": "8e3d98751fd2d1a6a873fa4078d64ff4d2134b1a2aaaf9bec3160ce837652e85",
+          "expected_sha256": "8e3d98751fd2d1a6a873fa4078d64ff4d2134b1a2aaaf9bec3160ce837652e85",
+          "ok": true,
+          "path": "sol-audit/SOL_AUDIT_V10.md"
+        },
+        {
+          "actual_sha256": "b2c693e6ffcd4ddc75bb6661487599d69d38f512d0057101a0f6938dc7d74b72",
+          "expected_sha256": "b2c693e6ffcd4ddc75bb6661487599d69d38f512d0057101a0f6938dc7d74b72",
+          "ok": true,
+          "path": "sol-audit/sol_verification_v10.json"
+        }
+      ],
+      "entry_count": 5,
+      "manifest": "sol-audit/SHA256SUMS_SOL_V10.txt",
+      "manifest_sha256": "c54d7cf9e59d5758184654946dd1ab0a59e652fe1379a2f26f09bf5111c602cb",
+      "parse_failures": []
+    },
+    {
+      "all_ok": true,
+      "entries": [
+        {
+          "actual_sha256": "9798099759c7402cb6dde2039c0896e77b3a33c6954cc1b2b7161e6e66d88a0b",
+          "expected_sha256": "9798099759c7402cb6dde2039c0896e77b3a33c6954cc1b2b7161e6e66d88a0b",
+          "ok": true,
+          "path": "paper-candidate-pre-audit/CANDIDATE.md"
+        },
+        {
+          "actual_sha256": "b4a5379b8423205c2ddb4a32613b621b571a0167ee5eb9d180d5ebaad90fddb4",
+          "expected_sha256": "b4a5379b8423205c2ddb4a32613b621b571a0167ee5eb9d180d5ebaad90fddb4",
+          "ok": true,
+          "path": "paper-candidate-pre-audit/HYPOTHESES.json"
+        },
+        {
+          "actual_sha256": "f9f3e4cf4e91616e441d19a7f3b0bfa065aa64bf93f20c22a6649778a89b307d",
+          "expected_sha256": "f9f3e4cf4e91616e441d19a7f3b0bfa065aa64bf93f20c22a6649778a89b307d",
+          "ok": true,
+          "path": "paper-candidate-pre-audit/PAPER_OUTLINE.md"
+        },
+        {
+          "actual_sha256": "e62c0959f382c396719be051a56a526c2c8fc460af45dc2b3de72a4d99c27f03",
+          "expected_sha256": "e62c0959f382c396719be051a56a526c2c8fc460af45dc2b3de72a4d99c27f03",
+          "ok": true,
+          "path": "paper-candidate-pre-audit/PRE_AUDIT_HANDOFF.md"
+        },
+        {
+          "actual_sha256": "5de547fc999ac52bf5f278763c7356e447a5d356c7f8db048a19d4ef8f54fdb6",
+          "expected_sha256": "5de547fc999ac52bf5f278763c7356e447a5d356c7f8db048a19d4ef8f54fdb6",
+          "ok": true,
+          "path": "paper-candidate-pre-audit/PRELIMINARY_PRIOR_ART.md"
+        },
+        {
+          "actual_sha256": "5e270448826a2fb1b19d0e021c1f84580b6022ae92bae9597ddce986e39ce523",
+          "expected_sha256": "5e270448826a2fb1b19d0e021c1f84580b6022ae92bae9597ddce986e39ce523",
+          "ok": true,
+          "path": "paper-candidate-pre-audit/PROOF_DRAFT.md"
+        },
+        {
+          "actual_sha256": "62d1965b58fcdd74f81f9bb42938498aceef36e119901719f6dbae88521f8eb2",
+          "expected_sha256": "62d1965b58fcdd74f81f9bb42938498aceef36e119901719f6dbae88521f8eb2",
+          "ok": true,
+          "path": "paper-candidate-pre-audit/RESEARCH_LOG.md"
+        },
+        {
+          "actual_sha256": "77e4e2308fd018b35c0134c44e41014d2a5a85d5224de4e686f971357d8f7d84",
+          "expected_sha256": "77e4e2308fd018b35c0134c44e41014d2a5a85d5224de4e686f971357d8f7d84",
+          "ok": true,
+          "path": "paper-candidate-pre-audit/verification.json"
+        },
+        {
+          "actual_sha256": "ce5a806a155f62d5a83ecc408e154e689d1c7583ee0b89766b1dbb273c64518c",
+          "expected_sha256": "ce5a806a155f62d5a83ecc408e154e689d1c7583ee0b89766b1dbb273c64518c",
+          "ok": true,
+          "path": "paper-candidate-pre-audit/verify_candidate.py"
+        }
+      ],
+      "entry_count": 9,
+      "manifest": "paper-candidate-pre-audit/SHA256SUMS.txt",
+      "manifest_sha256": "dd62a23fada9623241e9bce673e62e9b74be4cdec27fe68fa2c5ac251a94b70a",
+      "parse_failures": []
+    }
+  ],
+  "schema_version": 1
+}

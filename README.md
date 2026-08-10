@@ -30,6 +30,23 @@ This repository does **not** claim:
 - a correction of the entire paper; or
 - literature-wide priority or publication-level novelty.
 
+## Full-audit extension
+
+The `independent-full-audit/` package extends the preliminary parameter audit
+to the central ED2 proof route in arXiv:2511.07465v1. It records exact
+counterexamples to Lemma 9.24 and Proposition 9.25, a false positive for the
+affine-density argument, the corrected parameter bridge, and the remaining
+gaps in Appendices C and D.
+
+Its conclusion is deliberately narrow: the v1 proof route does not establish
+Theorem 9.21. It is not a disproof of Theorem 9.21, the Erdős–Straus
+conjecture, or the entire source paper. The full report remains a public
+preprint-level audit artifact requiring human mathematical review.
+
+See [`independent-full-audit/FULL_AUDIT_REPORT.md`](independent-full-audit/FULL_AUDIT_REPORT.md),
+[`independent-full-audit/SOURCE_DEPENDENCY_MAP.md`](independent-full-audit/SOURCE_DEPENDENCY_MAP.md),
+and [`independent-full-audit/REPRODUCE.md`](independent-full-audit/REPRODUCE.md).
+
 ## Public release status
 
 The repository is Public on GitHub and contains the preliminary,
@@ -46,6 +63,10 @@ into the following files:
 - [`LICENSE`](LICENSE) and [`LICENSE-DOCS.md`](LICENSE-DOCS.md): code and
   documentation licensing.
 - [`.github/workflows/verify.yml`](.github/workflows/verify.yml): CI checks.
+- [`independent-full-audit/`](independent-full-audit/): source-wide central
+  proof-route audit, exact counterexamples, and independent verifier.
+- [`paper-candidate-pre-audit/`](paper-candidate-pre-audit/): read-only input
+  package for the parameter-bridge candidate used by the full audit.
 
 ## Small exact witness
 
@@ -83,6 +104,7 @@ repository root:
 python .\v10_scan.py
 python .\verify_v10.py
 python .\sol-audit\independent_verify_sol_v10.py
+python .\independent-full-audit\independent_verify_full_audit.py
 ```
 
 The release gate is based on recorded fields, not only process exit codes:
@@ -96,6 +118,11 @@ independent verifier:
   imports_scan=false
   failures=[]
   v10_sha.all_ok=true
+
+full audit verifier:
+  imports_scan=false
+  failures=[]
+  input_integrity.unchanged_since_start=true
 ```
 
 The independent verifier does not import `v10_scan.py` or `verify_v10.py` and
@@ -121,15 +148,17 @@ deterministic across supported environments.
 
 ## Scope and remaining uncertainty
 
-The audit establishes a reproducible mismatch in the displayed parameter
-connection. It does not by itself determine whether the entire existence
-argument can be repaired with separate parameters, an added compatibility
-hypothesis, or a different proof.
+The preliminary audit establishes a reproducible mismatch in the displayed
+parameter connection. The full audit additionally identifies failures in the
+central ED2 existence route and its stated rescue paths. It does not establish
+that every unrelated ED1 argument or every lemma in the source fails, and it
+does not prove that the theorem statement itself is false.
 
-The repository has not established the status of later arXiv versions, author
-corrections, broad prior art, independent human confirmation, or
-publication-level novelty. Those checks are required before any priority
-claim, DOI, formal paper submission, or claim of a new result.
+The full audit contains a bounded check of the arXiv/Zenodo version state and
+nearby Type II literature. It is not a comprehensive priority search and has
+not received independent human confirmation. A DOI, formal paper submission,
+author notification, or claim of publication-level novelty remains a separate
+step.
 
 The primary source is [Dyachenko, arXiv:2511.07465v1](https://arxiv.org/abs/2511.07465).
 A reviewer is invited to identify any misreading in the `P=17` calculation or

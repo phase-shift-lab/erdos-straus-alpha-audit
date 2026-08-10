@@ -12,17 +12,23 @@ solve the Erdős–Straus conjecture and is not a peer-reviewed publication.
   valid.
 - The explicit `P=8t-3` family is recorded through its algebraic identities.
   Finite scans do not prove infinitude of a prime subfamily.
-- The audit does not establish that every proof route in the source fails.
-  It identifies a correction candidate in the stated parameter bridge.
+- The full audit covers the central ED2 existence route and the stated
+  Appendix C/D rescue paths. It does not establish that every unrelated ED1
+  lemma or every proof route in the source fails.
+- The audit identifies proof-route failures and a parameter correction; it does
+  not prove that Theorem 9.21 itself is false.
 
 ## Literature scope
 
-The following have not been comprehensively established by this repository:
+The following remain outside the bounded literature check in this repository:
 
-- later arXiv versions or author corrections;
 - a complete survey of prior art or publication priority;
 - independent confirmation by a journal referee or another mathematician;
 - whether the source author intended a different meaning for a reused symbol.
+
+The arXiv v1 history and the same Zenodo concept record were checked, and a
+nearby 2026 Type II paper was reviewed for context. These checks do not amount
+to a comprehensive literature review or a peer-review decision.
 
 The project should therefore use `correction candidate`, `audit result`, and
 `scope-limited` wording rather than `new discovery`, `proof`, or `disproof`.

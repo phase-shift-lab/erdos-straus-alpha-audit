@@ -16,6 +16,23 @@ The repository records a reproducible parameter-compatibility correction
 candidate. It does not claim a new Erdős–Straus solution, a refutation of the
 conjecture, a correction of the whole paper, or literature-wide novelty.
 
+## Full-audit result
+
+The 2026-08-10 full-audit package follows the central ED2 existence route in
+the v1 source. It verifies, with exact arithmetic, that:
+
+- Lemma 9.24 and Proposition 9.25 have explicit counterexamples;
+- affine-lattice density contains points that fail the nonlinear ED2 identity;
+- the square-free/lattice parameter bridge has the corrected gcd formula;
+- Appendix C's normalization claim is algebraically inconsistent; and
+- Appendix D supplies conditional checking machinery, not an unconditional
+  covering for every P.
+
+The narrow conclusion is that the v1 proof route does not establish
+Theorem 9.21. This is not a disproof of the theorem statement, the
+Erdős–Straus conjecture, or the whole paper. The detailed report and verifier
+are in [`independent-full-audit/`](independent-full-audit/).
+
 ## Main result
 
 For the displayed definitions in the v1 text, the square-free parameters and
@@ -68,6 +85,11 @@ verifier reports:
 imports_scan=false
 failures=[]
 v10_sha.all_ok=true
+
+full-audit verifier:
+  imports_scan=false
+  failures=[]
+  input_integrity.unchanged_since_start=true
 ```
 
 An earlier Windows run exposed a line-ending sensitivity in the generated
@@ -82,6 +104,7 @@ See [REPRODUCE.md](REPRODUCE.md) for the exact commands and
 ## Source and prior-art boundary
 
 The primary source audited here is [Dyachenko, arXiv:2511.07465v1](https://arxiv.org/abs/2511.07465).
-The project has not established the status of revised versions, author
-corrections, a comprehensive priority search, or publication-level novelty.
-The source PDF is linked, not redistributed.
+The full audit records a bounded arXiv/Zenodo version check and nearby Type II
+literature, but not a comprehensive priority search, independent human
+confirmation, or publication-level novelty. The source PDF is linked, not
+redistributed.
