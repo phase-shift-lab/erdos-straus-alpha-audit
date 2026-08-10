@@ -20,6 +20,20 @@
 - 予想の解決
 - 世界初、既報なし、または査読論文レベルの新規性
 
+## 全体監査の追加
+
+`independent-full-audit/` には、論文 v1 の中心 ED2 証明経路を対象にした
+独立全体監査を収録しています。Lemma 9.24 / Proposition 9.25 の厳密反例、
+アフィン格子密度の偽陽性、補正されたパラメータ橋、Appendix C/D の残る欠落を
+記録しています。
+
+結論は限定的です。v1 の証明経路では Theorem 9.21 は証明されていませんが、
+Theorem 9.21 自体、Erdős–Straus 予想、論文全体の反証を主張するものではありません。
+査読前の監査成果であり、第三者の数学的確認が必要です。
+
+詳細は [`independent-full-audit/FULL_AUDIT_REPORT.md`](independent-full-audit/FULL_AUDIT_REPORT.md)、
+再現手順は [`independent-full-audit/REPRODUCE.md`](independent-full-audit/REPRODUCE.md) を参照してください。
+
 ## 小さい厳密例
 
 ```text
@@ -48,6 +62,7 @@ Python標準ライブラリだけで実行できます。リポジトリのル�
 python .\v10_scan.py
 python .\verify_v10.py
 python .\sol-audit\independent_verify_sol_v10.py
+python .\independent-full-audit\independent_verify_full_audit.py
 ```
 
 独立 verifier の期待値は次です。
@@ -58,8 +73,14 @@ failures=[]
 v10_sha.all_ok=true
 ```
 
+全体監査 verifier では、さらに `input_integrity.unchanged_since_start=true`
+を確認します。
+
 ## 残る不確実性
 
-この監査で確認できるのは、表示されたパラメータ接続に再現可能な不整合があることまでです。パラメータを分離すれば存在証明全体を修復できるか、改訂版や著者訂正があるか、広範な先行研究があるかは別途確認が必要です。
+全体監査では、表示されたパラメータ接続に加えて、中心 ED2 存在経路と Appendix C/D
+の問題を確認しています。ただし、論文中の無関係な全経路が失敗することや、定理自体が
+偽であることまでは示していません。改訂版、著者訂正、広範な先行研究、人間による確認は
+別途必要です。
 
 第三者からの確認では、P=17の計算または Theorem 9.21(I) の読み方に誤りがないかを指摘してもらうことを想定しています。

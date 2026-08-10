@@ -19,6 +19,7 @@ python --version
 python .\v10_scan.py
 python .\verify_v10.py
 python .\sol-audit\independent_verify_sol_v10.py
+python .\independent-full-audit\independent_verify_full_audit.py
 ```
 
 `v10_scan.py` regenerates `v10_scan.json`.
@@ -39,11 +40,21 @@ independent verifier report:
   imports_scan=false
   failures=[]
   v10_sha.all_ok=true
+
+full-audit verifier:
+  imports_scan=false
+  failures=[]
+  input_integrity.unchanged_since_start=true
 ```
 
 The independent verifier can print a report while returning a successful
 process status, so inspect the JSON fields. A non-empty `failures` list is a
 failed verification gate.
+
+The full-audit verifier reads the protected manifests and the candidate input
+package, but does not import the original verifier or consume its JSON
+conclusions. Its output package is hashed in
+`independent-full-audit/SHA256SUMS.txt`.
 
 Before the LF-output fix, a Windows-generated working tree could report:
 
@@ -73,5 +84,6 @@ manifest. Do not silently update a SHA-protected artifact or manifest.
 ## Interpretation
 
 The checks establish only the recorded arithmetic identities and bounded
-enumerations. They do not establish the Erdős–Straus conjecture, invalidate
-the paper as a whole, or establish priority.
+enumerations. The full-audit findings classify the v1 proof route as
+unestablished; they do not establish the Erdős–Straus conjecture, disprove its
+statement, invalidate the paper as a whole, or establish priority.
